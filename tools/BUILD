@@ -53,6 +53,8 @@ compilation_database(
         "//main/pipeline:pipeline-orig",
         "//main/cache:cache-orig",
         "//infer:infer_test",
+        "//experimental/rubyfmt_example_c_invocation:main",
+        "//experimental/third_party/cargo/librubyfmt:rubyfmt_macro_wrappers",
         "//emscripten:main",
         "//payload/text:empty",
         "//payload/binary:some",
