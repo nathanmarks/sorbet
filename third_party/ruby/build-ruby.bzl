@@ -475,11 +475,11 @@ def _rubyfmt_static_deps_impl(ctx):
     for file in libs:
         print(file)
         library_to_link = cc_common.create_library_to_link(
-                cc_toolchain=cc_toolchain,
-                actions = ctx.actions,
-                feature_configuration = feature_configuration,
-                static_library = file,
-                )
+            cc_toolchain = cc_toolchain,
+            actions = ctx.actions,
+            feature_configuration = feature_configuration,
+            static_library = file,
+        )
         build.append(library_to_link)
 
     build = depset(build)
@@ -487,8 +487,8 @@ def _rubyfmt_static_deps_impl(ctx):
         owner = ctx.label,
         libraries = build,
     )
-    lc = cc_common.create_linking_context(linker_inputs=depset([li]))
-    return [CcInfo(linking_context=lc)]
+    lc = cc_common.create_linking_context(linker_inputs = depset([li]))
+    return [CcInfo(linking_context = lc)]
 
 _rubyfmt_static_deps = rule(
     attrs = {
