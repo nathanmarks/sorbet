@@ -35,15 +35,15 @@ int rubyfmt_init();
 // ask rubyfmt to format the passed buffer. Must be utf-8 encoded, and len
 // bytes long. Returns NULL and populates the err pointer with non zero if
 // an error occurs
-RubyfmtString *rubyfmt_format_buffer(unsigned char* buf, size_t len, enum Rubyfmt_FormatError* err);
+RubyfmtString *rubyfmt_format_buffer(unsigned char *buf, size_t len, enum Rubyfmt_FormatError *err);
 
 // free a RubyfmtString after use
-void rubyfmt_string_free(RubyfmtString*);
+void rubyfmt_string_free(RubyfmtString *);
 
 // Get a byte pointer from a RubyfmtString, is not a null terminated string,
 // but instead should be used with rubyfmt_string_len to get the number
 // of bytes in the string
-unsigned char* rubyfmt_string_ptr(const RubyfmtString*);
-size_t rubyfmt_string_len(const RubyfmtString*);
+unsigned char *rubyfmt_string_ptr(const RubyfmtString *);
+size_t rubyfmt_string_len(const RubyfmtString *);
 
 #endif
