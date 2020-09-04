@@ -8,6 +8,7 @@ cc_binary(
         "@com_stripe_ruby_typer//tools/config:darwin": ["-framework Foundation"],
         "//conditions:default": [""],
     }),
+    visibility = ["//visibility:public"],
     deps = [
         "//experimental/third_party/cargo/librubyfmt",
         "//experimental/third_party/cargo/librubyfmt:rubyfmt_macro_wrappers",
