@@ -100,11 +100,11 @@ ruby_version=$(./miniruby -r ./rbconfig.rb -e 'puts "#{{RbConfig::CONFIG["MAJOR"
 static_libs="$base/{static_libs}"
 mkdir -p "$static_libs"
 
-cp libruby*-static.a "$static_libs"
+cp libruby*-static.a "$static_libs/libruby-static.a"
 
 # from https://github.com/penelopezone/rubyfmt/blob/3051835cc28db04e9d9caf0c8430407ca0347e83/librubyfmt/build.rs#L34
 ar crs "libripper.$ruby_version-static.a" ext/ripper/ripper.o
-cp "libripper.$ruby_version-static.a" "$static_libs"
+cp "libripper.$ruby_version-static.a" "$static_libs/libripper-static.a"
 
 internal_incdir="$base/{internal_incdir}"
 
@@ -190,8 +190,8 @@ def _build_ruby_impl(ctx):
 
     internal_incdir = ctx.actions.declare_directory("toolchain/internal_include")
     static_libs = ctx.actions.declare_file("toolchain/static_libs")
-    static_lib_ruby = ctx.actions.declare_file("toolchain/static_libs/libruby.2.6-static.a")
-    static_lib_ripper = ctx.actions.declare_file("toolchain/static_libs/libripper.2.6-static.a")
+    static_lib_ruby = ctx.actions.declare_file("toolchain/static_libs/libruby-static.a")
+    static_lib_ripper = ctx.actions.declare_file("toolchain/static_libs/libripper-static.a")
 
     outputs = binaries + [libdir, incdir, sharedir, internal_incdir, static_libs, static_lib_ruby, static_lib_ripper]
 
